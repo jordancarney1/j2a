@@ -1,7 +1,16 @@
 [package]
-name = "JsonToAzure"
+name = "j2a"
+description = "A small utility to convert from JSON to Azure Environment Variable syntax."
 version = "0.1.0"
+repository = "https://github.com/jordancarney1/j2a"
+authors = ["Jordan Carney <jcarney@bluegracegroup.com>"]
 edition = "2021"
+
+[package.metadata.wix]
+upgrade-guid = "3AB5AEE5-68B0-4D5E-B516-DBF30B877C83"
+path-guid = "4ABE2E82-DBB7-411D-9900-766A4EC6FC3F"
+license = false
+eula = false
 
 [dependencies]
 clap = { version = "4.0", features = ["derive"] }
@@ -20,6 +29,12 @@ lto = "thin"
 # The preferred cargo-dist version to use in CI (Cargo.toml SemVer syntax)
 cargo-dist-version = "0.14.1"
 # The installers to generate for each app
-installers = []
+installers = ["shell", "powershell", "msi"]
 # Target platforms to build apps for (Rust target-triple syntax)
 targets = ["aarch64-apple-darwin", "x86_64-apple-darwin", "x86_64-unknown-linux-gnu", "x86_64-pc-windows-msvc"]
+# CI backends to support
+ci = "github"
+# Publish jobs to run in CI
+pr-run-mode = "plan"
+# Whether to install an updater program
+install-updater = true

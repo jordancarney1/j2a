@@ -1,4 +1,3 @@
-// use anyhow::{Context, Result};
 use clap::Parser;
 use serde::Serialize;
 use serde_json::Value;
@@ -8,16 +7,21 @@ use std::io::BufReader;
 use std::process;
 use valico::json_schema;
 
-// Convert provided JSON file to Azure EnvVar notation.
+// Converts provided JSON file to Azure EnvVar notation.
 // EXAMPLE
-//  {
+// [
+//   {
 //     "name": "Serilog:WriteTo:1:Args:apiKey",
 //     "value": "be9b742e38a63b65aafe85aace7f2db6",
 //     "slotSetting": true
-//   }
+//   },
+//   --snip
+// ]
 
 #[derive(Parser)]
+#[command(version, about, long_about = None)]
 struct Cli {
+    #[arg(short, long)]
     path: std::path::PathBuf,
 }
 
