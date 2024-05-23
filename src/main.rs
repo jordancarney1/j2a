@@ -100,7 +100,7 @@ fn traverse_json(
 fn main() {
     let args = Cli::parse();
 
-    // File is .json
+    // VALIDATES IS JSON FILE EXT
     let file_extension = args
         .path
         .extension()
@@ -120,7 +120,7 @@ fn main() {
 
     // VALIDATES JSON FILE
     let untyped_json: Value = serde_json::from_reader(reader).unwrap_or_else(|err| {
-        eprintln!("Error: {}", err);
+        eprintln!("File contains invalid JSON. Error: {}", err);
         process::exit(1);
     });
 
