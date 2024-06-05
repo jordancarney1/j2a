@@ -11,7 +11,7 @@ use valico::json_schema;
 // EXAMPLE
 // [
 //   {
-//     "name": "Serilog:WriteTo:1:Args:apiKey",
+//     "name": "Serilog__WriteTo__1__Args__apiKey",
 //     "value": "be9b742e38a63b65aafe85aace7f2db6",
 //     "slotSetting": true
 //   },
@@ -44,14 +44,14 @@ fn traverse_json(
                 let current_key = if parent_key.is_empty() {
                     key.clone()
                 } else {
-                    format!("{}:{}", parent_key, key)
+                    format!("{}__{}", parent_key, key)
                 };
                 traverse_json(value, &current_key, connection_strings, env_vars);
             }
         }
         Value::Array(array) => {
             for (idx, val) in array.iter().enumerate() {
-                let current_key = format!("{}:{}", parent_key, idx);
+                let current_key = format!("{}__{}", parent_key, idx);
                 traverse_json(val, &current_key, connection_strings, env_vars);
             }
         }
