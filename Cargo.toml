@@ -1,7 +1,7 @@
 [package]
 name = "j2a"
 description = "A small utility to convert from JSON to Azure Environment Variable syntax."
-version = "0.1.0"
+version = "0.2.0"
 repository = "https://github.com/jordancarney1/j2a"
 authors = ["Jordan Carney <jcarney@bluegracegroup.com>"]
 edition = "2021"
